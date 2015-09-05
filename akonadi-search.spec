@@ -4,12 +4,10 @@
 #
 #define debug_package %{nil}
 
-%define rel 1
-
 Summary:        Libraries and daemons to implement searching in Akonadi
 Name:           akonadi-search
-Version: 15.08.0
-Release:        %mkrel %rel
+Version:	15.08.0
+Release:        1
 License:        GPLv2+
 Group:          System/Base
 Source0:        http://fr2.rpmfind.net/linux/KDE/stable/plasma/%{name}-%{version}.tar.xz
@@ -21,17 +19,19 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Test)
 BuildRequires:  pkgconfig(Qt5Widgets)
 
-BuildRequires:  kf5-macros
-BuildRequires:  ki18n-devel
-BuildRequires:  kconfig-devel
-BuildRequires:  kcrash-devel
-BuildRequires:  akonadi-devel
-BuildRequires:  kdepimlibs-devel
-BuildRequires:  kmime-devel
-BuildRequires:  kcalcore-devel
+BuildRequires:  cmake(Qt5Test)
+BuildRequires:  cmake(ECM)
+BuildRequires:  cmake(Qt5)
+BuildRequires:  cmake(KF5)
+BuildRequires:  cmake(KF5Akonadi)
+BuildRequires:  cmake(KF5AkonadiServer)
+BuildRequires:  cmake(KF5Contacts)
+BuildRequires:  cmake(KF5Mime)
+BuildRequires:  cmake(KF5AkonadiMime)
+BuildRequires:  cmake(KF5CalendarCore)
 
 BuildRequires:  boost-devel
-BuildRequires:  pkgconfig(libsasl2)
+BuildRequires:  sasl-devel
 BuildRequires:  xapian-devel
 
 BuildRequires:	libxml2-utils
@@ -125,30 +125,9 @@ based on %name.
 %apply_patches
 
 %build
-%cmake_kf5
-%make
+%cmake_kde5
+%ninja
 
 %install
-%makeinstall_std -C build
-
-%find_lang --all %{name}5
-
-
-
-%changelog
-* Wed Aug 19 2015 neoclust <neoclust> 15.08.0-1.mga6
-+ Revision: 865897
-- New version 15.08.0
-
-* Wed Aug 12 2015 neoclust <neoclust> 15.07.90-2.mga6
-+ Revision: 863971
-- Plasma Mass Rebuild - Rebuild for new Plasma
-
-* Sun Aug 09 2015 neoclust <neoclust> 15.07.90-1.mga6
-+ Revision: 861710
-- New version 15.07.90
-
-* Wed Jul 29 2015 neoclust <neoclust> 15.07.80-1.mga6
-+ Revision: 858860
-- imported package akonadi-search
+%ninja_install -C build
 
