@@ -42,10 +42,10 @@ BuildRequires:	docbook-style-xsl
 Libraries and daemons to implement searching in Akonadi
 
 %files
-%_kf5_bindir/akonadi_indexing_agent
+%_bindir/akonadi_indexing_agent
 %_qt5_plugindir/akonadi/*.so
 %_sysconfdir/xdg/akonadi-search.categories
-%_kf5_datadir/akonadi/agents/akonadiindexingagent.desktop
+%_datadir/akonadi/agents/akonadiindexingagent.desktop
 
 #--------------------------------------------------------------------
 
@@ -61,7 +61,7 @@ Group:        System/Libraries
 Libraries and daemons to implement searching in Akonadi
 
 %files -n %libkf5akonadisearchcore
-%_kf5_libdir/libKF5AkonadiSearchCore.so.%{kf5akonadisearchcore_major}*
+%_libdir/libKF5AkonadiSearchCore.so.%{kf5akonadisearchcore_major}*
 
 #--------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ Group:        System/Libraries
 Akonadi Calendar Integration
 
 %files -n %libkf5akonadisearchpim
-%_kf5_libdir/libKF5AkonadiSearchPIM.so.%{kf5akonadisearchpim_major}*
+%_libdir/libKF5AkonadiSearchPIM.so.%{kf5akonadisearchpim_major}*
 
 #--------------------------------------------------------------------
 
@@ -93,7 +93,7 @@ Group:        System/Libraries
 Akonadi Calendar Integration
 
 %files -n %libkf5akonadisearchxapian
-%_kf5_libdir/libKF5AkonadiSearchXapian.so.%{kf5akonadisearchxapian_major}*
+%_libdir/libKF5AkonadiSearchXapian.so.%{kf5akonadisearchxapian_major}*
 
 #--------------------------------------------------------------------
 
@@ -113,10 +113,10 @@ This package contains header files needed if you wish to build applications
 based on %name.
 
 %files -n %kf5akonadisearchcore_devel
-%_kf5_includedir/AkonadiSearch
-%_kf5_includedir/*_version.h
-%_kf5_libdir/*.so
-%_kf5_libdir/cmake/KF5AkonadiSearch
+%_includedir/KF5/AkonadiSearch
+%_includedir/KF5/*_version.h
+%_libdir/*.so
+%_libdir/cmake/KF5AkonadiSearch
 
 #--------------------------------------------------------------------
 
