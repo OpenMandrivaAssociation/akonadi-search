@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   akonadi-search-15.08.0.tar.xz: e8c521cb5fc2cca740f719f03b462508762af388
+sources:
+  akonadi-search-15.08.1.tar.xz: a10449a0bc7e8564da1697f7d5a1b5840347c688
