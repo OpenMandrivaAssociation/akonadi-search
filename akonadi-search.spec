@@ -29,7 +29,8 @@ BuildRequires:  cmake(KF5Contacts)
 BuildRequires:  cmake(KF5Mime)
 BuildRequires:  cmake(KF5AkonadiMime)
 BuildRequires:  cmake(KF5CalendarCore)
-
+BuildRequires:  cmake(KF5KCMUtils)
+BuildRequires:  cmake(KF5Runner)
 BuildRequires:  boost-devel
 BuildRequires:  sasl-devel
 BuildRequires:  xapian-devel
@@ -121,11 +122,11 @@ based on %name.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q 
+%setup -q
 %apply_patches
+%cmake_kde5
 
 %build
-%cmake_kde5
 %ninja
 
 %install
