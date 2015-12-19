@@ -45,7 +45,7 @@ Libraries and daemons to implement searching in Akonadi.
 %files
 %{_bindir}/akonadi_indexing_agent
 %{_qt5_plugindir}/akonadi/*.so
-%{_qt5_plugindir}/plugins/*.so
+%{_qt5_plugindir}/*.so
 %{_sysconfdir}/xdg/akonadi-search.categories
 %{_datadir}/akonadi/agents/akonadiindexingagent.desktop
 %{_datadir}/kservices5/*.desktop
