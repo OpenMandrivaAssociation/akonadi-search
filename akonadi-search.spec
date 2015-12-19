@@ -40,13 +40,15 @@ BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
 
 %description
-Libraries and daemons to implement searching in Akonadi
+Libraries and daemons to implement searching in Akonadi.
 
 %files
-%_bindir/akonadi_indexing_agent
-%_qt5_plugindir/akonadi/*.so
-%_sysconfdir/xdg/akonadi-search.categories
-%_datadir/akonadi/agents/akonadiindexingagent.desktop
+%{_bindir}/akonadi_indexing_agent
+%{_qt5_plugindir}/akonadi/*.so
+%{_qt5_plugindir}/plugins/*.so
+%{_sysconfdir}/xdg/akonadi-search.categories
+%{_datadir}/akonadi/agents/akonadiindexingagent.desktop
+%{_datadir}/kservices5/*.desktop
 
 #--------------------------------------------------------------------
 
@@ -57,12 +59,11 @@ Libraries and daemons to implement searching in Akonadi
 Summary:      Libraries and daemons to implement searching in Akonadi
 Group:        System/Libraries
 
-
 %description -n %libkf5akonadisearchcore
-Libraries and daemons to implement searching in Akonadi
+Libraries and daemons to implement searching in Akonadi.
 
 %files -n %libkf5akonadisearchcore
-%_libdir/libKF5AkonadiSearchCore.so.%{kf5akonadisearchcore_major}*
+%{_libdir}/libKF5AkonadiSearchCore.so.%{kf5akonadisearchcore_major}*
 
 #--------------------------------------------------------------------
 
@@ -73,12 +74,11 @@ Libraries and daemons to implement searching in Akonadi
 Summary:      Akonadi Calendar Integration
 Group:        System/Libraries
 
-
 %description -n %libkf5akonadisearchpim
-Akonadi Calendar Integration
+Akonadi Calendar Integration.
 
 %files -n %libkf5akonadisearchpim
-%_libdir/libKF5AkonadiSearchPIM.so.%{kf5akonadisearchpim_major}*
+%{_libdir}/libKF5AkonadiSearchPIM.so.%{kf5akonadisearchpim_major}*
 
 #--------------------------------------------------------------------
 
@@ -89,19 +89,32 @@ Akonadi Calendar Integration
 Summary:      Akonadi Calendar Integration
 Group:        System/Libraries
 
-
 %description -n %libkf5akonadisearchxapian
-Akonadi Calendar Integration
+Akonadi Calendar Integration.
 
 %files -n %libkf5akonadisearchxapian
-%_libdir/libKF5AkonadiSearchXapian.so.%{kf5akonadisearchxapian_major}*
+%{_libdir}/libKF5AkonadiSearchXapian.so.%{kf5akonadisearchxapian_major}*
+
+#--------------------------------------------------------------------
+
+%define kf5akonadisearchdebug_major 5
+%define libkf5akonadisearchdebug %mklibname kf5akonadisearchdebug %{kf5akonadisearchdebug_major}
+
+%package -n %libkf5akonadisearchdebug
+Summary:      Akonadi Calendar Integration
+Group:        System/Libraries
+
+%description -n %libkf5akonadisearchdebug
+Akonadi Calendar Integration.
+
+%files -n %libkf5akonadisearchdebug
+%{_libdir}/libKF5AkonadiSearchDebug.so.%{kf5akonadisearchdebug_major}*
 
 #--------------------------------------------------------------------
 
 %define kf5akonadisearchcore_devel %mklibname kf5akonadisearch -d
 
 %package -n %kf5akonadisearchcore_devel
-
 Summary:        Devel stuff for %name
 Group:          Development/KDE and Qt
 Requires:       %libkf5akonadisearchcore = %version-%release
@@ -116,8 +129,8 @@ based on %name.
 %files -n %kf5akonadisearchcore_devel
 %_includedir/KF5/AkonadiSearch
 %_includedir/KF5/*_version.h
-%_libdir/*.so
-%_libdir/cmake/KF5AkonadiSearch
+%{_libdir}/*.so
+%{_libdir}/cmake/KF5AkonadiSearch
 
 #--------------------------------------------------------------------
 
