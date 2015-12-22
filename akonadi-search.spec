@@ -1,13 +1,7 @@
-#
-# Please do not update/rebuild/touch this package before asking first to mikala and/or neoclust
-# This package is part of the KDE Stack.
-#
-#define debug_package %{nil}
-
 Summary:        Libraries and daemons to implement searching in Akonadi
 Name:           akonadi-search
 Version:	15.12.0
-Release:	1
+Release:	2
 License:        GPLv2+
 Group:          System/Base
 Source0:        http://fr2.rpmfind.net/linux/KDE/stable/plasma/%{name}-%{version}.tar.xz
@@ -120,6 +114,7 @@ Group:          Development/KDE and Qt
 Requires:       %libkf5akonadisearchcore = %version-%release
 Requires:       %libkf5akonadisearchpim = %version-%release
 Requires:       %libkf5akonadisearchxapian = %version-%release
+Requires:       %libkf5akonadisearchdebugn = %version-%release
 Provides:       %name-devel = %{version}-%{release}
 
 %description -n %kf5akonadisearchcore_devel
@@ -144,4 +139,3 @@ based on %name.
 
 %install
 %ninja_install -C build
-
