@@ -114,7 +114,7 @@ Group:          Development/KDE and Qt
 Requires:       %libkf5akonadisearchcore = %version-%release
 Requires:       %libkf5akonadisearchpim = %version-%release
 Requires:       %libkf5akonadisearchxapian = %version-%release
-Requires:       %libkf5akonadisearchdebugn = %version-%release
+Requires:       %libkf5akonadisearchdebug = %version-%release
 Provides:       %name-devel = %{version}-%{release}
 
 %description -n %kf5akonadisearchcore_devel
