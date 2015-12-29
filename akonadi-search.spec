@@ -1,7 +1,7 @@
 Summary:        Libraries and daemons to implement searching in Akonadi
 Name:           akonadi-search
 Version:	15.12.0
-Release:	2
+Release:	3
 License:        GPLv2+
 Group:          System/Base
 Source0:        http://fr2.rpmfind.net/linux/KDE/stable/plasma/%{name}-%{version}.tar.xz
