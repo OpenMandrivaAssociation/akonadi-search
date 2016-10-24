@@ -1,6 +1,6 @@
 Summary:        Libraries and daemons to implement searching in Akonadi
 Name:           akonadi-search
-Version:	16.04.3
+Version:	16.08.2
 Release:	1
 License:        GPLv2+
 Group:          System/Base
