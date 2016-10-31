@@ -18,11 +18,8 @@ BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Test)
 BuildRequires:  pkgconfig(Qt5Widgets)
-
-BuildRequires:  cmake(Qt5Test)
+BuildRequires:  pkgconfig(Qt5Test)
 BuildRequires:  cmake(ECM)
-BuildRequires:  cmake(Qt5)
-BuildRequires:  cmake(KF5)
 BuildRequires:  cmake(KF5Akonadi)
 BuildRequires:  cmake(KF5Contacts)
 BuildRequires:  cmake(KF5Mime)
@@ -30,6 +27,10 @@ BuildRequires:  cmake(KF5AkonadiMime)
 BuildRequires:  cmake(KF5CalendarCore)
 BuildRequires:  cmake(KF5KCMUtils)
 BuildRequires:  cmake(KF5Runner)
+BuildRequires:  cmake(KF5CoreAddons)
+BuildRequires:  cmake(KF5I18n)
+BuildRequires:  cmake(KF5Config)
+BuildRequires:  cmake(KF5Crash)
 BuildRequires:  boost-devel
 BuildRequires:  sasl-devel
 BuildRequires:  xapian-devel
