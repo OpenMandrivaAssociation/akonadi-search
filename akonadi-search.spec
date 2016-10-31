@@ -1,40 +1,31 @@
-Summary:        Libraries and daemons to implement searching in Akonadi
-Name:           akonadi-search
+Summary:	Libraries and daemons to implement searching in Akonadi
+Name:		akonadi-search
 Version:	16.08.2
 Release:	1
-License:        GPLv2+
-Group:          System/Base
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
-Source0:        http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
-
-URL:            https://www.kde.org/
-
-BuildRequires:  pkgconfig(Qt5Core)
-BuildRequires:  pkgconfig(Qt5Gui)
-BuildRequires:  pkgconfig(Qt5Test)
-BuildRequires:  pkgconfig(Qt5Widgets)
-BuildRequires:  pkgconfig(Qt5Test)
-BuildRequires:  cmake(ECM)
-BuildRequires:  cmake(KF5Akonadi)
-BuildRequires:  cmake(KF5Contacts)
-BuildRequires:  cmake(KF5Mime)
-BuildRequires:  cmake(KF5AkonadiMime)
-BuildRequires:  cmake(KF5CalendarCore)
-BuildRequires:  cmake(KF5KCMUtils)
-BuildRequires:  cmake(KF5Runner)
-BuildRequires:  cmake(KF5CoreAddons)
-BuildRequires:  cmake(KF5I18n)
-BuildRequires:  cmake(KF5Config)
-BuildRequires:  cmake(KF5Crash)
-BuildRequires:  boost-devel
-BuildRequires:  sasl-devel
-BuildRequires:  xapian-devel
-
+License:	GPLv2+
+Group:		Graphical desktop/KDE
+Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
+URL:		https://www.kde.org/
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Test)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Qt5Test)
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(KF5Akonadi)
+BuildRequires:	cmake(KF5Contacts)
+BuildRequires:	cmake(KF5Mime)
+BuildRequires:	cmake(KF5AkonadiMime)
+BuildRequires:	cmake(KF5CalendarCore)
+BuildRequires:	cmake(KF5KCMUtils)
+BuildRequires:	cmake(KF5Runner)
+BuildRequires:	cmake(KF5CoreAddons)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5Crash)
+BuildRequires:	boost-devel
+BuildRequires:	sasl-devel
+BuildRequires:	xapian-devel
 BuildRequires:	libxml2-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
@@ -52,84 +43,32 @@ Libraries and daemons to implement searching in Akonadi.
 
 #--------------------------------------------------------------------
 
-%define kf5akonadisearchcore_major 5
-%define libkf5akonadisearchcore %mklibname kf5akonadisearchcore %{kf5akonadisearchcore_major}
+%libpackage KF5AkonadiSearchCore 5
+%libpackage KF5AkonadiSearchPIM 5
+%libpackage KF5AkonadiSearchXapian 5
+%libpackage KF5AkonadiSearchDebug 5
 
-%package -n %libkf5akonadisearchcore
-Summary:      Libraries and daemons to implement searching in Akonadi
-Group:        System/Libraries
 
-%description -n %libkf5akonadisearchcore
-Libraries and daemons to implement searching in Akonadi.
+%define develname %mklibname kf5akonadisearch -d
 
-%files -n %libkf5akonadisearchcore
-%{_libdir}/libKF5AkonadiSearchCore.so.%{kf5akonadisearchcore_major}*
-
-#--------------------------------------------------------------------
-
-%define kf5akonadisearchpim_major 5
-%define libkf5akonadisearchpim %mklibname kf5akonadisearchpim %{kf5akonadisearchpim_major}
-
-%package -n %libkf5akonadisearchpim
-Summary:      Akonadi Calendar Integration
-Group:        System/Libraries
-
-%description -n %libkf5akonadisearchpim
-Akonadi Calendar Integration.
-
-%files -n %libkf5akonadisearchpim
-%{_libdir}/libKF5AkonadiSearchPIM.so.%{kf5akonadisearchpim_major}*
-
-#--------------------------------------------------------------------
-
-%define kf5akonadisearchxapian_major 5
-%define libkf5akonadisearchxapian %mklibname kf5akonadisearchxapian %{kf5akonadisearchxapian_major}
-
-%package -n %libkf5akonadisearchxapian
-Summary:      Akonadi Calendar Integration
-Group:        System/Libraries
-
-%description -n %libkf5akonadisearchxapian
-Akonadi Calendar Integration.
-
-%files -n %libkf5akonadisearchxapian
-%{_libdir}/libKF5AkonadiSearchXapian.so.%{kf5akonadisearchxapian_major}*
-
-#--------------------------------------------------------------------
-
-%define kf5akonadisearchdebug_major 5
-%define libkf5akonadisearchdebug %mklibname kf5akonadisearchdebug %{kf5akonadisearchdebug_major}
-
-%package -n %libkf5akonadisearchdebug
-Summary:      Akonadi Calendar Integration
-Group:        System/Libraries
-
-%description -n %libkf5akonadisearchdebug
-Akonadi Calendar Integration.
-
-%files -n %libkf5akonadisearchdebug
-%{_libdir}/libKF5AkonadiSearchDebug.so.%{kf5akonadisearchdebug_major}*
-
-#--------------------------------------------------------------------
-
-%define kf5akonadisearchcore_devel %mklibname kf5akonadisearch -d
-
-%package -n %kf5akonadisearchcore_devel
-Summary:        Devel stuff for %name
+%package -n %{develname}
+Summary:        Devel stuff for %{name}
 Group:          Development/KDE and Qt
-Requires:       %libkf5akonadisearchcore = %version-%release
-Requires:       %libkf5akonadisearchpim = %version-%release
-Requires:       %libkf5akonadisearchxapian = %version-%release
-Requires:       %libkf5akonadisearchdebug = %version-%release
-Provides:       %name-devel = %{version}-%{release}
+Requires:	%{mklibname KF5AkonadiSearchCore 5} = %{EVRD}
+Requires:	%{mklibname KF5AkonadiSearchPIM 5} = %{EVRD}
+Requires:	%{mklibname KF5AkonadiSearchXapian 5} = %{EVRD}
+Requires:	%{mklibname KF5AkonadiSearchDebug 5} = %{EVRD}
+Requires:	%{name} = %{EVRD}
+Provides:       %{name}-devel = %{EVRD}
+Obsoletes:	%{mklibname kf5akonadisearch -d} < 16.08.2
 
-%description -n %kf5akonadisearchcore_devel
+%description -n %{develname}
 This package contains header files needed if you wish to build applications
-based on %name.
+based on %{name}.
 
-%files -n %kf5akonadisearchcore_devel
-%_includedir/KF5/AkonadiSearch
-%_includedir/KF5/*_version.h
+%files -n %{develname}
+%{_includedir}/KF5/AkonadiSearch
+%{_includedir}/KF5/*_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5AkonadiSearch
 
