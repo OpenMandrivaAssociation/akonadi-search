@@ -49,7 +49,7 @@ Libraries and daemons to implement searching in Akonadi.
 %libpackage KF5AkonadiSearchDebug 5
 
 
-%define develname %mklibname kf5akonadisearch -d
+%define develname %mklibname KF5AkonadiSearchCore -d
 
 %package -n %{develname}
 Summary:        Devel stuff for %{name}
