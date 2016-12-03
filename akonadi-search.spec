@@ -8,7 +8,7 @@
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
 Version:	16.08.3
-Release:	6
+Release:	7
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
@@ -58,8 +58,8 @@ Libraries and daemons to implement searching in Akonadi.
 Summary:	Akonadi search library
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
-Obsoletes:	%{mklibname kf5konadisearchcore 5} < 16.08.3
-Conflicts:	%{mklibname kf5konadisearchcore 5} < 16.08.3
+Obsoletes:	%{mklibname kf5akonadisearchcore 5} < 16.08.3
+Conflicts:	%{mklibname kf5akonadisearchcore 5} < 16.08.3
 
 %description -n %{libname}
 Akonadi search library.
@@ -72,8 +72,8 @@ Akonadi search library.
 %package -n %{libKF5AkonadiSearchPIM}
 Summary:	Akonadi search library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kf5konadisearchpim 5} < 16.08.3
-Conflicts:	%{mklibname kf5konadisearchpim 5} < 16.08.3
+Obsoletes:	%{mklibname kf5akonadisearchpim 5} < 16.08.3
+Conflicts:	%{mklibname kf5akonadisearchpim 5} < 16.08.3
 
 %description -n %{libKF5AkonadiSearchPIM}
 Akonadi search library.
@@ -86,8 +86,8 @@ Akonadi search library.
 %package -n %{libKF5AkonadiSearchXapian}
 Summary:	Akonadi search library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kf5konadisearchxapian 5} < 16.08.3
-Conflicts:	%{mklibname kf5konadisearchxapian 5} < 16.08.3
+Obsoletes:	%{mklibname kf5akonadisearchxapian 5} < 16.08.3
+Conflicts:	%{mklibname kf5akonadisearchxapian 5} < 16.08.3
 
 %description -n %{libKF5AkonadiSearchXapian}
 Akonadi search library.
@@ -100,8 +100,8 @@ Akonadi search library.
 %package -n %{libKF5AkonadiSearchDebug}
 Summary:	Akonadi search library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kf5konadisearchdebug 5} < 16.08.3
-Conflicts:	%{mklibname kf5konadisearchdebug 5} < 16.08.3
+Obsoletes:	%{mklibname kf5akonadisearchdebug 5} < 16.08.3
+Conflicts:	%{mklibname kf5akonadisearchdebug 5} < 16.08.3
 
 %description -n %{libKF5AkonadiSearchDebug}
 Akonadi search library.
