@@ -1,3 +1,10 @@
+%define major 5
+%define libname %mklibname KF5AkonadiSearchCore %{major}
+%define libKF5AkonadiSearchPIM %mklibname KF5AkonadiSearchPIM %{major}
+%define libKF5AkonadiSearchXapian %mklibname KF5AkonadiSearchXapian %{major}
+%define libKF5AkonadiSearchDebug %mklibname KF5AkonadiSearchDebug %{major}
+%define develname %mklibname KF5AkonadiSearchCore -d
+
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
 Version:	16.08.3
@@ -30,9 +37,9 @@ BuildRequires:	libxml2-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
 Requires:	%{libname} = %{EVRD}
-Requires:	libKF5AkonadiSearchPIM = %{EVRD}
-Requires:	libKF5AkonadiSearchXapian = %{EVRD}
-Requires:	libKF5AkonadiSearchDebug = %{EVRD}
+Requires:	%{libKF5AkonadiSearchPIM} = %{EVRD}
+Requires:	%{libKF5AkonadiSearchXapian} = %{EVRD}
+Requires:	%{libKF5AkonadiSearchDebug} = %{EVRD}
 
 %description
 Libraries and daemons to implement searching in Akonadi.
@@ -46,9 +53,6 @@ Libraries and daemons to implement searching in Akonadi.
 %{_datadir}/kservices5/*.desktop
 
 #--------------------------------------------------------------------
-
-%define major 5
-%define libname %mklibname KF5AkonadiSearchCore %{major}
 
 %package -n %{libname}
 Summary:	Akonadi search library
@@ -65,8 +69,6 @@ Akonadi search library.
 
 #--------------------------------------------------------------------
 
-%define libKF5AkonadiSearchPIM %mklibname KF5AkonadiSearchPIM %{major}
-
 %package -n %{libKF5AkonadiSearchPIM}
 Summary:	Akonadi search library
 Group:		System/Libraries
@@ -80,8 +82,6 @@ Akonadi search library.
 %{_libdir}/libKF5AkonadiSearchPIM.so.%{major}*
 
 #--------------------------------------------------------------------
-
-%define libKF5AkonadiSearchXapian %mklibname KF5AkonadiSearchXapian %{major}
 
 %package -n %{libKF5AkonadiSearchXapian}
 Summary:	Akonadi search library
@@ -97,8 +97,6 @@ Akonadi search library.
 
 #--------------------------------------------------------------------
 
-%define libKF5AkonadiSearchDebug %mklibname KF5AkonadiSearchDebug %{major}
-
 %package -n %{libKF5AkonadiSearchDebug}
 Summary:	Akonadi search library
 Group:		System/Libraries
@@ -112,7 +110,6 @@ Akonadi search library.
 %{_libdir}/libKF5AkonadiSearchDebug.so.%{major}*
 
 #--------------------------------------------------------------------
-%define develname %mklibname KF5AkonadiSearchCore -d
 
 %package -n %{develname}
 Summary:        Devel stuff for %{name}
