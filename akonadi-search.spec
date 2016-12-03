@@ -1,7 +1,7 @@
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
 Version:	16.08.3
-Release:	5
+Release:	6
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
@@ -29,6 +29,10 @@ BuildRequires:	xapian-devel
 BuildRequires:	libxml2-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
+Requires:	%{libname} = %{EVRD}
+Requires:	libKF5AkonadiSearchPIM = %{EVRD}
+Requires:	libKF5AkonadiSearchXapian = %{EVRD}
+Requires:	libKF5AkonadiSearchDebug = %{EVRD}
 
 %description
 Libraries and daemons to implement searching in Akonadi.
@@ -51,6 +55,7 @@ Summary:	Akonadi search library
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
 Obsoletes:	%{mklibname kf5konadisearchcore 5} < 16.08.3
+Conflicts:	%{mklibname kf5konadisearchcore 5} < 16.08.3
 
 %description -n %{libname}
 Akonadi search library.
@@ -66,6 +71,7 @@ Akonadi search library.
 Summary:	Akonadi search library
 Group:		System/Libraries
 Obsoletes:	%{mklibname kf5konadisearchpim 5} < 16.08.3
+Conflicts:	%{mklibname kf5konadisearchpim 5} < 16.08.3
 
 %description -n %{libKF5AkonadiSearchPIM}
 Akonadi search library.
@@ -81,6 +87,7 @@ Akonadi search library.
 Summary:	Akonadi search library
 Group:		System/Libraries
 Obsoletes:	%{mklibname kf5konadisearchxapian 5} < 16.08.3
+Conflicts:	%{mklibname kf5konadisearchxapian 5} < 16.08.3
 
 %description -n %{libKF5AkonadiSearchXapian}
 Akonadi search library.
@@ -96,6 +103,7 @@ Akonadi search library.
 Summary:	Akonadi search library
 Group:		System/Libraries
 Obsoletes:	%{mklibname kf5konadisearchdebug 5} < 16.08.3
+Conflicts:	%{mklibname kf5konadisearchdebug 5} < 16.08.3
 
 %description -n %{libKF5AkonadiSearchDebug}
 Akonadi search library.
