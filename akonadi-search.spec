@@ -1,7 +1,7 @@
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
 Version:	16.08.3
-Release:	4
+Release:	5
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
@@ -29,10 +29,6 @@ BuildRequires:	xapian-devel
 BuildRequires:	libxml2-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
-Obsoletes:	%{mklibname kf5konadisearchcore 5} < 16.08.3
-Obsoletes:	%{mklibname kf5konadisearchPIM 5} < 16.08.3
-Obsoletes:	%{mklibname kf5konadisearchXapian 5} < 16.08.3
-Obsoletes:	%{mklibname kf5konadisearchDebug 5} < 16.08.3
 
 %description
 Libraries and daemons to implement searching in Akonadi.
@@ -47,21 +43,76 @@ Libraries and daemons to implement searching in Akonadi.
 
 #--------------------------------------------------------------------
 
-%dependinglibpackage KF5AkonadiSearchCore 5
-%libpackage KF5AkonadiSearchPIM 5
-%libpackage KF5AkonadiSearchXapian 5
-%libpackage KF5AkonadiSearchDebug 5
+%define major 5
+%define libname %mklibname KF5AkonadiSearchCore %{major}
 
+%package -n %{libname}
+Summary:	Akonadi search library
+Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
+Obsoletes:	%{mklibname kf5konadisearchcore 5} < 16.08.3
 
+%description -n %{libname}
+Akonadi search library.
+
+%files -n %{libname}
+%{_libdir}/libKF5AkonadiSearchCore.so.%{major}*
+
+#--------------------------------------------------------------------
+
+%define libKF5AkonadiSearchPIM %mklibname KF5AkonadiSearchPIM %{major}
+
+%package -n %{libKF5AkonadiSearchPIM}
+Summary:	Akonadi search library
+Group:		System/Libraries
+Obsoletes:	%{mklibname kf5konadisearchpim 5} < 16.08.3
+
+%description -n %{libKF5AkonadiSearchPIM}
+Akonadi search library.
+
+%files -n %{libKF5AkonadiSearchPIM}
+%{_libdir}/libKF5AkonadiSearchPIM.so.%{major}*
+
+#--------------------------------------------------------------------
+
+%define libKF5AkonadiSearchXapian %mklibname KF5AkonadiSearchXapian %{major}
+
+%package -n %{libKF5AkonadiSearchXapian}
+Summary:	Akonadi search library
+Group:		System/Libraries
+Obsoletes:	%{mklibname kf5konadisearchxapian 5} < 16.08.3
+
+%description -n %{libKF5AkonadiSearchXapian}
+Akonadi search library.
+
+%files -n %{libKF5AkonadiSearchXapian}
+%{_libdir}/libKF5AkonadiSearchXapian.so.%{major}*
+
+#--------------------------------------------------------------------
+
+%define libKF5AkonadiSearchDebug %mklibname KF5AkonadiSearchDebug %{major}
+
+%package -n %{libKF5AkonadiSearchDebug}
+Summary:	Akonadi search library
+Group:		System/Libraries
+Obsoletes:	%{mklibname kf5konadisearchdebug 5} < 16.08.3
+
+%description -n %{libKF5AkonadiSearchDebug}
+Akonadi search library.
+
+%files -n %{libKF5AkonadiSearchDebug}
+%{_libdir}/libKF5AkonadiSearchDebug.so.%{major}*
+
+#--------------------------------------------------------------------
 %define develname %mklibname KF5AkonadiSearchCore -d
 
 %package -n %{develname}
 Summary:        Devel stuff for %{name}
 Group:          Development/KDE and Qt
-Requires:	%{mklibname KF5AkonadiSearchCore 5} = %{EVRD}
-Requires:	%{mklibname KF5AkonadiSearchPIM 5} = %{EVRD}
-Requires:	%{mklibname KF5AkonadiSearchXapian 5} = %{EVRD}
-Requires:	%{mklibname KF5AkonadiSearchDebug 5} = %{EVRD}
+Requires:	%{mklibname KF5AkonadiSearchCore %{major}} = %{EVRD}
+Requires:	%{mklibname KF5AkonadiSearchPIM %{major}} = %{EVRD}
+Requires:	%{mklibname KF5AkonadiSearchXapian %{major}} = %{EVRD}
+Requires:	%{mklibname KF5AkonadiSearchDebug %{major}} = %{EVRD}
 Requires:	%{name} = %{EVRD}
 Provides:       %{name}-devel = %{EVRD}
 Obsoletes:	%{mklibname kf5akonadisearch -d} < 16.08.2
