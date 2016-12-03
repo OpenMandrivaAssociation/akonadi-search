@@ -1,7 +1,7 @@
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
 Version:	16.08.3
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
@@ -29,6 +29,10 @@ BuildRequires:	xapian-devel
 BuildRequires:	libxml2-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
+Obsoletes:	%{mklibname kf5konadisearchcore 5} < 16.08.3
+Obsoletes:	%{mklibname kf5konadisearchPIM 5} < 16.08.3
+Obsoletes:	%{mklibname kf5konadisearchXapian 5} < 16.08.3
+Obsoletes:	%{mklibname kf5konadisearchDebug 5} < 16.08.3
 
 %description
 Libraries and daemons to implement searching in Akonadi.
@@ -43,7 +47,7 @@ Libraries and daemons to implement searching in Akonadi.
 
 #--------------------------------------------------------------------
 
-%libpackage KF5AkonadiSearchCore 5
+%dependinglibpackage KF5AkonadiSearchCore 5
 %libpackage KF5AkonadiSearchPIM 5
 %libpackage KF5AkonadiSearchXapian 5
 %libpackage KF5AkonadiSearchDebug 5
