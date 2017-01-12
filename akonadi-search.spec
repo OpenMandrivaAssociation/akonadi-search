@@ -7,8 +7,8 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	16.08.3
-Release:	7
+Version:	16.12.1
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Source0:	http://download.kde.org/stable/applications/%{version}/src/%{name}-%{version}.tar.xz
@@ -49,6 +49,7 @@ Libraries and daemons to implement searching in Akonadi.
 %{_qt5_plugindir}/akonadi/*.so
 %{_qt5_plugindir}/*.so
 %{_sysconfdir}/xdg/akonadi-search.categories
+%{_sysconfdir}/xdg/akonadi-search.renamecategories
 %{_datadir}/akonadi/agents/akonadiindexingagent.desktop
 %{_datadir}/kservices5/*.desktop
 
