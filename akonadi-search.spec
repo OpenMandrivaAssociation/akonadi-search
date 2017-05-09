@@ -7,7 +7,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	17.04.0
+Version:	17.04.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -50,7 +50,7 @@ Requires:	%{libKF5AkonadiSearchDebug} = %{EVRD}
 %description
 Libraries and daemons to implement searching in Akonadi.
 
-%files -f akonadi_baloo_indexer.lang
+%files -f akonadi_search.lang
 %{_bindir}/akonadi_indexing_agent
 %{_qt5_plugindir}/akonadi/*.so
 %{_qt5_plugindir}/*.so
@@ -151,4 +151,4 @@ based on %{name}.
 
 %install
 %ninja_install -C build
-%find_lang akonadi_baloo_indexer
+%find_lang akonadi_search
