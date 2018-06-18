@@ -37,6 +37,7 @@ BuildRequires:	cmake(KF5CoreAddons)
 BuildRequires:	cmake(KF5I18n)
 BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5Crash)
+BuildRequires:	cmake(KF5DBusAddons)
 BuildRequires:	boost-devel
 BuildRequires:	sasl-devel
 BuildRequires:	xapian-devel
