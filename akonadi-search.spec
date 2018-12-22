@@ -7,7 +7,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	 18.11.90
+Version:	 18.12.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
