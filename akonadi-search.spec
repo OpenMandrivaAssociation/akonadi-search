@@ -7,8 +7,8 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	20.03.90
-Release:	2
+Version:	20.04.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 %define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
