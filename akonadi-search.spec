@@ -7,7 +7,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	21.08.3
+Version:	21.12.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -141,6 +141,7 @@ based on %{name}.
 %{_includedir}/KF5/*_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5AkonadiSearch
+%doc %{_docdir}/qt5/*.{qch,tags}
 
 #--------------------------------------------------------------------
 
