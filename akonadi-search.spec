@@ -44,6 +44,9 @@ BuildRequires:	xapian-devel
 BuildRequires:	libxml2-utils
 BuildRequires:	docbook-dtds
 BuildRequires:	docbook-style-xsl
+# For QCH format docs
+BuildRequires: doxygen
+BuildRequires: qt5-assistant
 Requires:	%{libname} = %{EVRD}
 Requires:	%{libKF5AkonadiSearchPIM} = %{EVRD}
 Requires:	%{libKF5AkonadiSearchXapian} = %{EVRD}
