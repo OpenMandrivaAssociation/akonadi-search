@@ -7,7 +7,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	21.12.2
+Version:	22.03.80
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -58,12 +58,11 @@ Libraries and daemons to implement searching in Akonadi.
 %files -f akonadi_search.lang
 %{_bindir}/akonadi_indexing_agent
 %{_qt5_plugindir}/akonadi/*.so
-%{_qt5_plugindir}/*.so
 %{_datadir}/qlogging-categories5/akonadi-search.categories
 %{_datadir}/qlogging-categories5/akonadi-search.renamecategories
 %{_datadir}/akonadi/agents/akonadiindexingagent.desktop
-%{_datadir}/kservices5/*.desktop
 %{_qt5_plugindir}/kf5/krunner/krunner_pimcontacts.so
+%{_libdir}/qt5/plugins/kf5/krunner/kcms/kcm_krunner_pimcontacts.so
 
 #--------------------------------------------------------------------
 
@@ -141,7 +140,6 @@ based on %{name}.
 
 %files -n %{develname}
 %{_includedir}/KF5/AkonadiSearch
-%{_includedir}/KF5/*_version.h
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5AkonadiSearch
 %doc %{_docdir}/qt5/*.{qch,tags}
