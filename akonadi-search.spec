@@ -12,7 +12,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	23.08.1
+Version:	23.08.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -61,6 +61,7 @@ Requires:	%{libKF5AkonadiSearchDebug} = %{EVRD}
 Libraries and daemons to implement searching in Akonadi.
 
 %files -f akonadi_search.lang
+%{_bindir}/akonadi_html_to_text
 %{_bindir}/akonadi_indexing_agent
 %{_datadir}/qlogging-categories5/akonadi-search.categories
 %{_datadir}/qlogging-categories5/akonadi-search.renamecategories
