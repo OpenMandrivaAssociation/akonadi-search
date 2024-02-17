@@ -21,7 +21,7 @@ Group:		Graphical desktop/KDE
 %define ftpdir stable
 %endif
 %if 0%{?git:1}
-Source0:	https://invent.kde.org/pim/akonadi-search/-/archive/%{gitbranch}/akonadi-search-%{gitbranchd}.tar.bz2#/akonadi-search-20240217.tar.bz2
+Source0:	https://invent.kde.org/pim/akonadi-search/-/archive/%{gitbranch}/akonadi-search-%{gitbranchd}.tar.bz2#/akonadi-search-%{git}.tar.bz2
 %else
 Source0:	http://download.kde.org/%{ftpdir}/release-service/%{version}/src/akonadi-search-%{version}.tar.xz
 %endif
