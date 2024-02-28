@@ -1,4 +1,4 @@
-%define git 20240217
+#define git 20240217
 %define gitbranch release/24.02
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define major 6
@@ -10,7 +10,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		plasma6-akonadi-search
-Version:	24.01.96
+Version:	24.02.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
