@@ -10,7 +10,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		plasma6-akonadi-search
-Version:	24.05.0
+Version:	24.05.1
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
