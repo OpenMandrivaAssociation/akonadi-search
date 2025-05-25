@@ -9,8 +9,8 @@
 %define develname %mklibname KPim6AkonadiSearchCore -d
 
 Summary:	Libraries and daemons to implement searching in Akonadi
-Name:		plasma6-akonadi-search
-Version:	25.04.0
+Name:		akonadi-search
+Version:	25.04.1
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -59,11 +59,16 @@ Requires:	%{libname} = %{EVRD}
 Requires:	%{libKF6AkonadiSearchPIM} = %{EVRD}
 Requires:	%{libKF6AkonadiSearchXapian} = %{EVRD}
 Requires:	%{libKF6AkonadiSearchDebug} = %{EVRD}
+# Renamed 2025-05-25 after 6.0
+%rename plasma6-akonadi-search
+
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %description
 Libraries and daemons to implement searching in Akonadi.
 
-%files -f akonadi_search.lang
+%files -f %{name}.lang
 %{_bindir}/akonadi_html_to_text
 %{_bindir}/akonadi_indexing_agent
 %{_datadir}/qlogging-categories6/akonadi-search.categories
@@ -79,8 +84,9 @@ Libraries and daemons to implement searching in Akonadi.
 Summary:	Akonadi search library
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
-Obsoletes:	%{mklibname kf6akonadisearchcore 6} < 16.08.3
-Conflicts:	%{mklibname kf6akonadisearchcore 6} < 16.08.3
+# Not a 1:1 replacement, but we have to get rid of old cruft...
+Obsoletes:	%{mklibname KF5AkonadiSearchCore 5}
+Obsoletes:	%{mklibname KPim5AkonadiSearchCore}
 
 %description -n %{libname}
 Akonadi search library.
@@ -93,8 +99,9 @@ Akonadi search library.
 %package -n %{libKF6AkonadiSearchPIM}
 Summary:	Akonadi search library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kf6akonadisearchpim 6} < 16.08.3
-Conflicts:	%{mklibname kf6akonadisearchpim 6} < 16.08.3
+# Not a 1:1 replacement, but we have to get rid of old cruft...
+Obsoletes:	%{mklibname KF5AkonadiSearchPIM 5}
+Obsoletes:	%{mklibname KPim5AkonadiSearchPIM}
 
 %description -n %{libKF6AkonadiSearchPIM}
 Akonadi search library.
@@ -107,8 +114,9 @@ Akonadi search library.
 %package -n %{libKF6AkonadiSearchXapian}
 Summary:	Akonadi search library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kf6akonadisearchxapian 6} < 16.08.3
-Conflicts:	%{mklibname kf6akonadisearchxapian 6} < 16.08.3
+# Not a 1:1 replacement, but we have to get rid of old cruft...
+Obsoletes:	%{mklibname KF5AkonadiSearchXapian 5}
+Obsoletes:	%{mklibname KPim5AkonadiSearchXapian}
 
 %description -n %{libKF6AkonadiSearchXapian}
 Akonadi search library.
@@ -121,8 +129,9 @@ Akonadi search library.
 %package -n %{libKF6AkonadiSearchDebug}
 Summary:	Akonadi search library
 Group:		System/Libraries
-Obsoletes:	%{mklibname kf6akonadisearchdebug 6} < 16.08.3
-Conflicts:	%{mklibname kf6akonadisearchdebug 6} < 16.08.3
+# Not a 1:1 replacement, but we have to get rid of old cruft...
+Obsoletes:	%{mklibname KF5AkonadiSearchDebug 5}
+Obsoletes:	%{mklibname KPim5AkonadiSearchDebug}
 
 %description -n %{libKF6AkonadiSearchDebug}
 Akonadi search library.
@@ -141,7 +150,9 @@ Requires:	%{mklibname KPim6AkonadiSearchXapian} = %{EVRD}
 Requires:	%{mklibname KPim6AkonadiSearchDebug} = %{EVRD}
 Requires:	%{name} = %{EVRD}
 Provides:       %{name}-devel = %{EVRD}
-Obsoletes:	%{mklibname kf6akonadisearch -d} < 16.08.2
+# Not a 1:1 replacement, but we have to get rid of old cruft...
+Obsoletes:	%{mklibname -d KF5AkonadiSearchCore}
+Obsoletes:	%{mklibname -d KPim5AkonadiSearchCore}
 
 %description -n %{develname}
 This package contains header files needed if you wish to build applications
@@ -150,18 +161,3 @@ based on %{name}.
 %files -n %{develname}
 %{_includedir}/KPim6/AkonadiSearch
 %{_libdir}/cmake/KPim6AkonadiSearch
-
-#--------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n akonadi-search-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-%find_lang akonadi_search
