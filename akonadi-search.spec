@@ -10,7 +10,7 @@
 
 Summary:	Libraries and daemons to implement searching in Akonadi
 Name:		akonadi-search
-Version:	26.04.3
+Version:	26.08.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -32,7 +32,7 @@ BuildRequires:	pkgconfig(Qt6Test)
 BuildRequires:	pkgconfig(Qt6Widgets)
 BuildRequires:	pkgconfig(Qt6Test)
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(KPim6Mime)
+BuildRequires:	cmake(KF6Mime)
 BuildRequires:	cmake(KPim6Akonadi)
 BuildRequires:	cmake(KPim6AkonadiMime)
 BuildRequires:	cmake(KF6Contacts)
